@@ -1,124 +1,117 @@
-# 🎮 Game Sense – Esports Performance & Gaming Health Analytics
+# 📱 Mobile App User Engagement and Subscription Analysis
 
-### 📊 Data Analytics Project | Python | Pandas | NumPy | Power BI
+### Data Analytics Project | Python | Pandas | NumPy | Power BI
 
-**Game Sense** is a data analytics project that explores the relationship between esports players' gaming performance, health indicators, and lifestyle habits. The project analyzes player-session data to understand how sleep, reaction time, Actions Per Minute (APM), energy drink consumption, heart rate, and other factors relate to match outcomes.
+## 📌 Project Overview
 
-Using **Python, Pandas, NumPy, Matplotlib, Seaborn, and Power BI**, the project transforms raw gaming data into meaningful insights that can help players and coaches better understand performance and recovery patterns.
+**Mobile App User Engagement and Subscription Analysis** is a data analytics project that explores user interactions, device usage, application engagement, and subscription patterns.
 
----
+The project uses Python for data cleaning, preprocessing, and exploratory data analysis (EDA), followed by Power BI for interactive dashboard development.
 
-## 📌 Table of Contents
+The goal is to understand how users interact with a mobile application, identify the most frequently used devices and features, compare Android and iOS activity, and discover opportunities to improve engagement and subscription conversion.
 
-- [Project Overview](#-project-overview)
-- [Problem Statement](#-problem-statement)
-- [Project Objectives](#-project-objectives)
-- [Dataset Information](#-dataset-information)
-- [Tools and Technologies](#-tools-and-technologies)
-- [Project Workflow](#-project-workflow)
-- [Data Cleaning and Feature Engineering](#-data-cleaning-and-feature-engineering)
-- [Exploratory Data Analysis](#-exploratory-data-analysis)
-- [Key Insights](#-key-insights)
-- [Power BI Dashboard](#-power-bi-dashboard)
-- [Project Structure](#-project-structure)
-- [How to Run the Project](#-how-to-run-the-project)
-- [Limitations](#-limitations)
-- [Future Improvements](#-future-improvements)
-- [Team Members](#-team-members)
-- [Dataset Source](#-dataset-source)
+📊 **Project Highlights**
+- Analyzed 100,000 raw user interaction records.
+- Cleaned dataset containing 98,656 records and 21 columns.
+- Compared Android and iOS interaction volumes.
+- Identified frequently used event types and device models.
+- Explored subscription distribution and checkout interactions.
+- Developed an interactive Power BI dashboard.
 
 ---
-
-## 🔍 Project Overview
-
-Esports performance depends on more than gaming skills alone. Lifestyle habits, recovery, and physiological indicators may also be associated with how players perform during matches.
-
-This project analyzes **250,000 player-session records** to investigate patterns between gaming performance and health-related factors.
-
-The analysis focuses on identifying relationships between:
-
-- Sleep duration and match win rate.
-- Reaction time and gaming performance.
-- APM and match outcomes.
-- Energy drink consumption and heart rate.
-- Heart Rate Variability (HRV) and sleep duration.
-- Game genres and player performance.
-- Blue-light filter usage and gaming habits.
-
-The findings are presented through an interactive Power BI dashboard for easier exploration and comparison.
-
-## ❗ Problem Statement
-
-Esports datasets contain valuable information about player performance, lifestyle habits, and physiological conditions. However, raw data alone does not clearly explain how these factors relate to match outcomes.
-
-This project addresses the following questions:
-
-- How is sleep duration associated with match win rates?
-- Does faster reaction time correspond to better match outcomes?
-- Does a higher APM always indicate better performance?
-- How does energy drink consumption relate to heart rate?
-- How do performance patterns differ across game genres?
-- How are sleep, HRV, and reaction time related?
-- How can data visualization help players and coaches explore these relationships?
 
 ## 🎯 Project Objectives
 
-- Clean and validate raw esports gaming data.
-- Handle missing values and standardize column names.
-- Engineer meaningful categories for sleep, APM, and reaction time.
-- Perform exploratory data analysis using Python.
-- Identify patterns in player performance, health indicators, and lifestyle habits.
-- Compare win rates across different game genres and behavioral groups.
-- Develop an interactive Power BI dashboard.
-- Present data-driven insights that may support training and recovery decisions.
+- Clean and prepare the raw mobile app interaction dataset.
+- Identify the most frequently used operating systems and mobile devices.
+- Analyze user engagement through interaction events and session duration.
+- Compare user activity across Android and iOS platforms.
+- Examine subscription patterns among users.
+- Identify the most frequently interacted-with app features.
+- Explore relationships between numerical variables.
+- Build an interactive Power BI dashboard to communicate insights.
+- Provide data-driven recommendations for engagement and subscription growth.
+
+---
+
+## ❓ Problem Statement
+
+Mobile applications generate large amounts of user interaction data, including device information, user demographics, session activity, event types, battery levels, memory usage, and subscription status.
+
+However, raw data alone does not clearly reveal which devices and platforms generate the most engagement, which application features receive the most interactions, or how subscription status relates to user activity.
+
+Missing and inconsistent values can also make it difficult to analyze the data accurately.
+
+This project addresses these challenges by cleaning and analyzing mobile app interaction data using Python and transforming the findings into an interactive Power BI dashboard.
+
+The analysis aims to help answer important business questions:
+
+- Which operating system generates the most user interactions?
+- Which mobile device models are used most frequently?
+- What are the most common types of user interactions?
+- Which application elements receive the most engagement?
+- What proportion of users have active subscriptions?
+- How do session duration, memory usage, battery level, and user age relate to one another?
+- Where are the opportunities to improve user engagement and subscription conversion?
 
 ---
 
 ## 📂 Dataset Information
 
-| Attribute | Description |
+The project uses the Mobile App Interaction Dataset.
+
+| Attribute | Details |
 |---|---|
-| Dataset Name | Esports Gaming Biometrics Dataset |
-| Source | Kaggle |
-| Original Records | 250,000 rows |
-| Original Columns | 13 |
-| Columns After Feature Engineering | 16 |
-| Data Type | Player-session-level records |
-| Row Meaning | One player's biometric and performance readings for a single match session |
+| Dataset Name | Mobile App Interaction Dataset |
+| Original Records | 100,000 |
+| Original Columns | 21 |
+| Cleaned Records | 98,656 |
+| Cleaned Columns | 21 |
+| Data Type | User session and event interaction data |
+| Dataset Source | `mobile_app_user_interactions.csv` |
+| Cleaned File | `mobile_app_user_interactions_cleaned.xlsx` |
+| Analysis Environment | Google Colab |
+
+Each row represents a single user session or event interaction.
 
 ### Important Dataset Columns
 
 | Column | Description |
 |---|---|
-| `player_id` | Player identifier |
-| `age` | Player age |
-| `game_genre` | Genre of the game |
-| `playtime_hours` | Gaming duration |
-| `sleep_hours` | Duration of sleep |
-| `energy_drinks` | Energy drink consumption |
-| `screen_brightness` | Screen brightness level |
-| `blue_light_filter` | Blue-light filter usage |
-| `apm` | Actions Per Minute |
-| `heart_rate_bpm` | Heart rate in beats per minute |
-| `hrv_score` | Heart Rate Variability score |
-| `reaction_time_ms` | Reaction time in milliseconds |
-| `match_outcome` | Match result |
-
-The dataset combines gaming performance metrics, lifestyle information, and biometric indicators for exploratory analysis.
+| `date` | Date and time of the interaction |
+| `user_id` | Unique user identifier |
+| `session_id` | Unique session identifier |
+| `device_os` | Device operating system, such as Android or iOS |
+| `device_os_version` | Operating system version |
+| `device_model` | Mobile device model |
+| `screen_resolution` | Device screen resolution |
+| `location_country` | User's country |
+| `location_city` | User's city |
+| `app_language` | Application language setting |
+| `network_type` | Network connection type |
+| `battery_level` | Battery level at the time of interaction |
+| `memory_usage_mb` | Application memory usage |
+| `event_type` | Type of user interaction |
+| `event_target` | Application element targeted by the interaction |
+| `event_value` | Numeric value associated with the event |
+| `session_duration_sec` | Session duration in seconds |
+| `is_subscribed` | Whether the user has an active subscription |
+| `user_age` | User age |
+| `push_enabled` | Whether push notifications are enabled |
 
 ---
 
 ## 🛠️ Tools and Technologies
 
-| Technology | Purpose |
+| Tool | Purpose |
 |---|---|
-| Python | Data cleaning, transformation, and analysis |
-| Pandas | Data manipulation and preprocessing |
-| NumPy | Numerical operations and data handling |
+| Python | Data cleaning, preprocessing, and analysis |
+| Pandas | Data manipulation and transformation |
+| NumPy | Numerical operations |
 | Matplotlib | Data visualization |
 | Seaborn | Statistical visualization |
-| Power BI | Interactive dashboard development |
-| Jupyter Notebook | Python analysis workflow |
+| Google Colab | Python notebook environment |
+| Microsoft Power BI | Interactive dashboard development |
 | Microsoft Excel | Storage and inspection of cleaned data |
 
 ---
@@ -127,217 +120,245 @@ The dataset combines gaming performance metrics, lifestyle information, and biom
 
 The project follows a structured data analytics workflow:
 
-**Raw Dataset → Data Cleaning → Feature Engineering → Exploratory Data Analysis → Insights Generation → Power BI Dashboard**
+**Data Collection → Data Inspection → Data Cleaning → Exploratory Data Analysis → Insight Generation → Power BI Dashboard**
 
 ### 1. Data Collection
-Collected the Esports Gaming Biometrics Dataset from Kaggle.
+Loaded the mobile app interaction dataset into Python for analysis.
 
-### 2. Data Preprocessing
-Inspected the dataset, handled missing values, standardized column names, and validated numerical fields.
+### 2. Data Inspection
+Examined the dataset's shape, column names, data types, summary statistics, missing values, and duplicate records.
 
-### 3. Feature Engineering
-Created grouped categories to make performance and lifestyle comparisons easier.
+### 3. Data Cleaning
+Handled missing values, standardized data types, removed records with missing identifiers, and investigated numerical outliers.
 
 ### 4. Exploratory Data Analysis
-Analyzed relationships between player health indicators, gaming habits, and match outcomes using Python visualization libraries.
+Analyzed operating system usage, subscription distribution, interaction types, device models, event targets, and numerical correlations.
 
-### 5. Insights Generation
-Identified trends involving sleep, reaction time, APM, energy drink consumption, and game genres.
+### 5. Insight Generation
+Identified patterns that could inform platform prioritization, checkout optimization, and subscription conversion strategies.
 
 ### 6. Dashboard Development
-Designed an interactive Power BI dashboard to present key metrics, comparisons, and analytical findings.
+Built an interactive Power BI dashboard to present engagement metrics and subscription-related findings.
 
 ---
 
-## 🧹 Data Cleaning and Feature Engineering
+## 🧹 Data Cleaning and Preprocessing
 
 Data cleaning was performed using Python and Pandas.
 
-### Data Cleaning Activities
+### Data Cleaning Steps
 
-- **Missing values:** Filled missing values in `screen_brightness` and `hrv_score` using their respective column medians.
-- **Duplicate records:** Checked for exact duplicate rows; none required removal.
-- **Column standardization:** Converted column names to lowercase.
-- **Data validation:** Checked numerical fields, including APM, heart rate, HRV, reaction time, sleep hours, and playtime hours, for invalid negative or zero values.
-- **Outlier analysis:** Applied the Interquartile Range (IQR) method to identify potential outliers.
-- **Outlier handling:** Retained flagged values because extreme observations could represent legitimate high-intensity gaming sessions or low-recovery conditions.
+**1. Initial Inspection**
+- Examined dataset dimensions and sample records.
+- Reviewed data types and summary statistics.
+- Checked for duplicate rows.
+- Identified missing values across the 21 columns.
 
-### Feature Engineering
+**2. Sparse Column Analysis**
+- Evaluated columns using a 50% non-missing-value threshold.
+- Retained all 21 columns because none exceeded the specified missing-value threshold.
 
-Created three additional categorical features:
+**3. Data Type Conversion**
+- Converted the `date` column into datetime format.
+- Reviewed unique values in important categorical columns.
+- Standardized numerical column types where required.
 
-- `sleep_groups` – Groups players according to sleep duration.
-- `apm_groups` – Categorizes players by Actions Per Minute.
-- `reaction_time_group` – Groups players by reaction time.
+**4. Missing Value Handling**
+- Removed rows with missing `ip_address`, `session_id`, or `user_id`.
+- Filled missing categorical values using the mode.
+- Filled missing numerical values using the mean where appropriate.
+- Used the median for `device_os_version` because it contained outliers.
 
-These features make it easier to compare win rates and performance indicators across different categories.
+**5. Outlier Detection**
+- Used boxplots to inspect numerical variables.
+- Applied the Interquartile Range (IQR) method to `device_os_version`.
+- Retained valid `session_duration_sec` values without IQR filtering because the analysis did not identify outliers in that column.
+
+**6. Export**
+- Exported the cleaned dataset to Excel for further analysis and visualization.
+
+### Dataset After Cleaning
+
+| Metric | Value |
+|---|---:|
+| Original Rows | 100,000 |
+| Cleaned Rows | 98,656 |
+| Original Columns | 21 |
+| Cleaned Columns | 21 |
+| Rows Removed | 1,344 |
 
 ---
 
-## 📈 Exploratory Data Analysis
+## 📊 Exploratory Data Analysis
 
-The analysis explored several dimensions of esports performance.
+Exploratory Data Analysis was performed using Pandas, Matplotlib, and Seaborn.
 
-### 1. Performance Analysis
+### Analysis Areas
 
-Examined win rates across APM groups and reaction-time categories to understand how these indicators relate to match outcomes.
+**1. Operating System Analysis**
+- Compared interactions between Android and iOS.
+- Identified the dominant platform by interaction volume.
 
-### 2. Health and Behavioral Analysis
+**2. Subscription Analysis**
+- Examined the distribution of subscribed and non-subscribed users.
+- Identified potential opportunities for subscription conversion.
 
-Investigated relationships between:
+**3. Event Type Analysis**
+- Compared the frequency of different user interaction events.
+- Identified the most common interaction types.
 
-- Sleep duration and win rate.
-- Sleep duration and reaction time.
-- Sleep duration and HRV score.
-- Energy drink consumption and heart rate.
-- Blue-light filter usage and gaming habits.
+**4. Device Model Analysis**
+- Ranked mobile device models by interaction count.
+- Identified the device model generating the most interactions.
 
-### 3. Game Genre Analysis
+**5. Event Target Analysis**
+- Examined interactions with different application interface elements.
+- Identified the most frequently engaged event target.
 
-Compared win rates and average HRV scores across:
-
-- Fighting
-- MOBA
-- FPS
-- Battle Royale
-
-### 4. Visualization
-
-Used Matplotlib and Seaborn to explore distributions, trends, and relationships before presenting the findings through Power BI.
-
----
-
-## 💡 Key Insights
-
-The following findings are based on the project's exploratory analysis.
-
-### 😴 1. Sleep Duration and Win Rate
-
-| Sleep Group | Win Rate |
-|---|---:|
-| Less than 5 hours | 47.95% |
-| 5–7 hours | 50.71% |
-| 7–9 hours | 51.61% |
-| 9+ hours | 52.12% |
-
-**Insight:** Players in the 9+ hour sleep group had the highest observed win rate, at 52.12%. Longer sleep duration was also associated with lower reaction times and higher HRV scores.
-
-### ⚡ 2. Reaction Time and Performance
-
-| Reaction Time | Win Rate |
-|---|---:|
-| Less than 220 ms | 50.19% |
-| 220–250 ms | 54.20% |
-| 250–280 ms | 50.36% |
-| 280–310 ms | 46.93% |
-| 310+ ms | 44.89% |
-
-**Insight:** The 220–250 ms reaction-time group had the highest observed win rate, at 54.20%. Win rates were lower among groups with reaction times above 280 ms.
-
-### 🎯 3. APM Does Not Guarantee Winning
-
-| APM Group | Win Rate |
-|---|---:|
-| Less than 100 | 63.64% |
-| 100–200 | 44.91% |
-| 200–300 | 49.88% |
-| 300–400 | 51.71% |
-| 400+ | 55.34% |
-
-**Insight:** The lowest APM group had the highest observed win rate. This suggests that a higher action rate alone does not necessarily correspond to better match outcomes.
-
-### ❤️ 4. Energy Drinks and Heart Rate
-
-- Average heart rate increased from approximately 80 BPM among players consuming no energy drinks to approximately 97 BPM among those consuming four.
-- The analysis did not identify a clear corresponding improvement in win rate.
-
-**Insight:** Energy drink consumption was associated with higher average heart rates, but the analysis did not establish a direct performance benefit.
-
-### 🎮 5. Performance Across Game Genres
-
-| Game Genre | Win Rate | Average HRV Score |
-|---|---:|---:|
-| Fighting | 50.63% | 87 |
-| MOBA | 49.74% | 87 |
-| FPS | 46.46% | 88 |
-| Battle Royale | 45.61% | 88 |
-
-**Insight:** Fighting games had the highest observed win rate among the analyzed genres, while Battle Royale had the lowest. Average HRV scores remained relatively similar across genres.
-
-### 💻 6. Blue-Light Filter Usage
-
-Approximately **65% of players** used a blue-light filter.
-
-**Insight:** Blue-light filter usage was common among players in the analyzed dataset.
-
-### 📌 Overall Findings
-
-The analysis highlights relationships between sleep duration, reaction time, energy drink consumption, and esports performance. These patterns may help guide further investigation into gaming habits and recovery.
-
-*Note: These results describe observed associations in the dataset. They do not establish that any single lifestyle factor directly causes a change in match performance.*
+**6. Correlation Analysis**
+- Investigated relationships between battery level, memory usage, event value, session duration, and user age.
+- Used a heatmap to visualize linear correlations.
 
 ---
 
-## 📊 Power BI Dashboard
+## 💡 Key Insights and Findings
 
-The Power BI dashboard, titled **Game Sense – Performance & Health Analytics**, brings the project's findings together in an interactive visual interface.
+The following insights are based on the project's analysis and documentation.
 
-### Dashboard Features
+### 1. Android Dominates Interaction Volume
 
-- **KPI Cards:** Total players, win rate, and loss rate.
-- **Performance Metrics:** Average APM, reaction time, and sleep duration.
-- **Genre Analysis:** Win rates across game genres.
-- **Sleep Analysis:** Win rates and performance metrics by sleep group.
-- **APM Analysis:** Win rates across APM categories.
-- **Reaction-Time Analysis:** Performance comparisons across reaction-time groups.
-- **Scatter Plot:** APM versus reaction time, segmented by match outcome.
-- **Energy Drink Analysis:** Trends involving energy drink consumption and win rate.
-- **Health Metrics:** Average HRV score and heart rate across relevant groups.
-- **Blue-Light Filter Analysis:** Usage-share donut chart.
-- **Age Analysis:** Player distribution by age group.
-- **Interactive Filters:** Game genre, blue-light filter, match outcome, and sleep group.
+Android generated significantly more interactions than iOS.
 
-The dashboard allows users to explore performance patterns, compare player groups, and examine relationships between health indicators and gaming outcomes.
+The Xiaomi Mi 11 was the leading device model by interaction count.
 
-> **Dashboard Preview:** Add your Power BI dashboard screenshots to the repository and embed them here.
+**Business implication:** Prioritize understanding the Android user experience while continuing to monitor performance and engagement across iOS devices.
 
-Example:
+### 2. Subscription Distribution Is Nearly Evenly Split
+
+The analysis found that slightly more than half of users were subscribed.
+
+The remaining non-subscribed users represent a potential audience for subscription-conversion initiatives.
+
+**Business implication:** Investigate targeted campaigns, onboarding improvements, and subscription messaging to encourage appropriate conversion.
+
+### 3. Clicks Are the Most Common Interaction
+
+Click was the most frequently recorded event type, followed by share and view.
+
+The distribution suggests that users engage with multiple types of application interactions.
+
+**Business implication:** Monitor common interaction paths to understand how users navigate the application and which features receive the most attention.
+
+### 4. Checkout Is a Key Interaction Point
+
+The checkout button was the most frequently engaged event target in the analysis.
+
+This indicates substantial interaction with the application's purchasing or conversion area.
+
+**Business implication:** Examine the checkout experience to identify opportunities to simplify navigation, improve usability, and support successful conversions.
+
+### 5. Numerical Usage Metrics Have Weak Linear Relationships
+
+The correlation analysis found weak linear relationships among battery level, memory usage, event value, session duration, and user age.
+
+**Business implication:** User engagement should not be explained using any single one of these variables in isolation. Additional analysis may be needed to identify more complex relationships.
+
+### Summary of Findings
+
+| Analysis Area | Key Finding | Potential Business Action |
+|---|---|---|
+| Operating Systems | Android has more interactions than iOS | Investigate Android engagement and usability |
+| Device Models | Xiaomi Mi 11 leads in interaction count | Examine high-activity device segments |
+| Subscriptions | Slightly more than half of users are subscribed | Explore subscription conversion opportunities |
+| Event Types | Click is the most frequent interaction | Analyze common user interaction paths |
+| Event Targets | Checkout button receives the most interactions | Review the checkout experience |
+| Correlation Analysis | Numerical variables show weak linear relationships | Explore additional explanatory factors |
+
+*These are descriptive findings from the available dataset. They do not establish causation or prove that a particular product change will improve engagement or subscription conversion.*
+
+---
+
+## 📈 Power BI Dashboard
+
+The project includes an interactive dashboard titled:
+
+**Mobile App User Interaction Dashboard**
+
+The dashboard presents engagement metrics, device comparisons, subscription information, and session behavior.
+
+### Dashboard Page 1: Engagement Overview
+
+Key visualizations include:
+
+- Total interactions.
+- Average session duration.
+- Average memory usage.
+- Subscription rate.
+- Interactions by event type.
+- Subscription rate by country.
+- Interaction count by operating system.
+- Top mobile device models.
+- Subscription distribution by device OS.
+- Top countries by mobile user count.
+
+### Dashboard Page 2: Detailed Analysis
+
+Key visualizations include:
+
+- Average session duration by device OS.
+- Average event value by event type.
+- Memory usage versus session duration by device model.
+- Average battery level by network type.
+- Interaction counts by event type and event target.
+- Top device models by session duration.
+
+### Dashboard Purpose
+
+The dashboard enables users to explore overall engagement, compare operating systems, identify popular devices and application elements, and examine subscription patterns.
+
+### Dashboard Preview
+
+Add screenshots of your Power BI dashboard to your GitHub repository.
+
+For example:
 
 ```markdown
-![Game Sense Dashboard](images/dashboard-overview.png)
+![Mobile App Dashboard Overview](images/dashboard-page-1.png)
+
+![Mobile App Detailed Analysis](images/dashboard-page-2.png)
 ```
+
+The screenshots will appear in the README after you upload the corresponding image files.
 
 ---
 
 ## 📁 Project Structure
 
-Organize the repository as follows, adjusting the filenames to match your actual uploaded files.
+A suggested GitHub repository structure is:
 
 ```text
-Game-Sense-Esports-Analytics/
+Mobile-App-Engagement-Analytics/
 │
 ├── data/
-│   ├── game_sense_raw.csv
-│   └── gameSense_cleaned.xlsx
+│   └── mobile_app_user_interactions_cleaned.xlsx
 │
 ├── notebooks/
-│   └── GameSense.ipynb
+│   └── mobile_app_user_engagement_analysis.ipynb
 │
 ├── dashboard/
-│   └── GameSense.pbix
+│   └── Mobile_App_User_Interaction_Dashboard.pbix
 │
 ├── images/
-│   ├── dashboard-overview.png
-│   ├── performance-analysis.png
-│   └── health-behavior-analysis.png
+│   ├── dashboard-page-1.png
+│   └── dashboard-page-2.png
 │
 ├── documentation/
-│   └── E-Sports Game Sense Documentation.pdf
+│   └── Mobile_App_User_Engagement_and_Subscription_Analytics_Documentation.docx
 │
 └── README.md
 ```
 
-*The notebook, Power BI report, and screenshots should be included only if you have those files available. The structure above is a suggested repository layout.*
+*This is a recommended structure. Include the notebook, Power BI report, screenshots, and documentation only when the corresponding files are available.*
 
 ---
 
@@ -350,7 +371,7 @@ Install Python and the required libraries.
 ### Step 1: Clone the Repository
 
 ```bash
-git clone https://github.com/YOUR-USERNAME/Game-Sense-Esports-Analytics.git
+git clone https://github.com/YOUR-USERNAME/Mobile-App-Engagement-Analytics.git
 ```
 
 Replace `YOUR-USERNAME` with your GitHub username.
@@ -358,24 +379,26 @@ Replace `YOUR-USERNAME` with your GitHub username.
 ### Step 2: Navigate to the Project Directory
 
 ```bash
-cd Game-Sense-Esports-Analytics
+cd Mobile-App-Engagement-Analytics
 ```
 
-### Step 3: Install Dependencies
+### Step 3: Install the Required Libraries
 
 ```bash
 pip install pandas numpy matplotlib seaborn openpyxl jupyter
 ```
 
-### Step 4: Launch Jupyter Notebook
+### Step 4: Open Jupyter Notebook
 
 ```bash
 jupyter notebook
 ```
 
-Open `GameSense.ipynb` and run the cells to reproduce the data cleaning and exploratory analysis, provided the notebook and required dataset are included.
+Open the project notebook and execute the cells to reproduce the analysis, provided the notebook and required dataset are included.
 
-### Step 5: Explore the Power BI Dashboard
+Alternatively, upload the notebook and dataset to Google Colab and run the analysis there.
+
+### Step 5: Open the Power BI Dashboard
 
 Open the `.pbix` report in Microsoft Power BI Desktop to explore the dashboard interactively, provided the report file is included.
 
@@ -383,11 +406,12 @@ Open the `.pbix` report in Microsoft Power BI Desktop to explore the dashboard i
 
 ## ⚠️ Limitations
 
-- The project focuses on descriptive analytics and exploratory data analysis rather than predictive modeling.
-- The observed relationships are correlational and do not establish causation.
-- The dataset contains individual session records rather than longitudinal tracking of the same players.
-- The analysis covers a fixed set of game genres.
-- Other factors that influence match outcomes may not be captured in the available dataset.
+- The project focuses on descriptive and exploratory analytics rather than predictive modeling.
+- Correlations do not establish causal relationships.
+- Missing-value imputation may reduce some natural variability in the data.
+- The dashboard does not yet provide detailed city-level and age-group segmentation.
+- Weak linear correlations do not rule out nonlinear relationships.
+- The analysis does not establish why particular users subscribe or which factors directly drive conversion.
 
 ---
 
@@ -395,43 +419,23 @@ Open the `.pbix` report in Microsoft Power BI Desktop to explore the dashboard i
 
 Potential extensions include:
 
-- Building machine learning models to estimate match win probability.
-- Tracking individual players over time to analyze changes in habits and performance.
-- Incorporating team, tournament, and coaching data.
-- Integrating real-time biometric information during matches.
-- Automating dataset refreshes and dashboard updates.
-- Adding more detailed dashboard filters and coach-focused views.
-- Evaluating model performance if predictive analytics is introduced.
+- Adding time-based engagement and subscription trend analysis.
+- Performing cohort analysis to understand how user behavior changes over time.
+- Segmenting engagement by country, city, and age group.
+- Building machine learning models to predict subscription conversion.
+- Exploring nonlinear relationships among user engagement metrics.
+- Incorporating marketing campaign and revenue data.
+- Improving Power BI dashboard filtering and drill-down capabilities.
+- Investigating checkout interactions in greater detail.
 
----
 
-## 👥 Team Members
+## 🏁 Conclusion
 
-**Team Name:** Data Dynamos
+The Mobile App User Engagement and Subscription Analysis project demonstrates how Python-based data analytics and Power BI visualization can transform raw mobile application interactions into useful business insights.
 
-**Institution:** TEKS Academy
+The analysis identified Android as the dominant platform by interaction volume, the Xiaomi Mi 11 as the leading device model, click as the most common event type, and the checkout button as the most-engaged event target.
 
-**Team Members:**
-- Teja Sri
-- Ajay Kumar
-- Lahari
+The subscription distribution also indicated opportunities to investigate conversion strategies, while weak linear correlations among numerical variables highlighted the need for further analysis.
 
-**Project Type:** Data Analytics Project
-## 📚 Dataset Source
+These findings can support future investigations into mobile app usability, engagement patterns, and subscription growth.
 
-The project uses the **Esports Gaming Biometrics Dataset** sourced from Kaggle.
-
-- **Dataset Platform:** Kaggle
-- **Dataset:** Esports Gaming Biometrics Dataset
-
-Add the original Kaggle dataset URL here before publishing the repository.
-
----
-
-## ⭐ Conclusion
-
-Game Sense demonstrates how data analytics can be used to investigate esports performance and gaming health patterns.
-
-By combining Python-based data cleaning, exploratory analysis, and Power BI visualization, the project transforms 250,000 player-session records into interpretable findings about sleep, reaction time, APM, energy drink consumption, and game genres.
-
-The project provides a foundation for further research into player performance, recovery habits, and data-driven esports coaching.
